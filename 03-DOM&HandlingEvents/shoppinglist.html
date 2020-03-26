@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Shopping List</title>
-    <meta charset="UTF-8">
-</head>
+    <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
 
-<body>
+  <body>
     <h1>Shopping List</h1>
     <p>
-        New item: <input type="text" name="item">
-        <button type="button">Add</button>
+      New item: <input type="text" name="item" />
+      <button type="button">Add</button>
     </p>
     <h3>List of items</h3>
     <ol>
-        <li>cooking oil</li>
-        <li>breakfast cereal</li>
-        <li>bread</li>
+      <li>cooking oil</li>
+      <li>breakfast cereal</li>
+      <li>bread</li>
     </ol>
 
     <script>
-    	// a JavaScript code here ...
+      document
+        .getElementsByTagName("button")[0]
+        .setAttribute("onClick", "add()");
 
+      //function
+
+      function add() {
+        let itemValue = document.getElementsByName("item")[0].value;
+        let newItem = document.createElement("li");
+        newItem.innerHTML = itemValue;
+        let list = document.getElementsByTagName("ol")[0];
+        list.appendChild(newItem);
+        document.getElementsByName("item")[0].value = "";
+        $(newItem).dblclick(function() {
+          this.remove();
+        });
+      }
+      $(document).ready(function() {
+        $("li").dblclick(function() {
+          this.remove();
+        });
+      });
     </script>
-</body>
-
+  </body>
 </html>
