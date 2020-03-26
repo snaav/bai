@@ -1,11 +1,19 @@
+//Dane:
+//p - połowa obwodu trójkąta
+//poleT - pole trójkąta
 // boki trójkąta
 //a = 3;
 b = 4;
 c = 5;
-h = 7
+h = 7;
 
-// Pole trókąta o bokach ..., ... oraz ... wynosi ... .
+//Rozwiązanie:
+p = (1 / 2) * (b + c + h);
+poleT = Math.sqrt(p * (p - b) * (p - c) * (p - h));
 
-let a = () => "aaaa";
+//Odpowiedź
 
-console.log( a() );
+let a = () =>
+  `Pole Trójąta o bokach ${b}, ${c} oraz ${h} wynosi ${poleT} [j^2].`;
+
+console.log(a());
