@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-</head>
-<body>
-  <script>
-    var app = new Vue({
-      el: '#app',
-      data: {
-        company: 'UnikPol S.A.',
-        address: 'ul. Ukryta 5',
-        postcode: '02-114',
-        city: 'Rawa Mazowiecka',
-        landline: '22 345 90 21',
-        mobile: '888 213 992',
-        web: 'http://www.unikpol.pl'
-      }
-    });
-  </script>
-
-</body>
+  </head>
+  <body>
+    <div id="app">
+      <div
+        style="text-align: center; border: 1px solid; width: fit-content; padding: 20px 40px;"
+      >
+        <div style="font-weight: bold">{{company.toUpperCase()}}</div>
+        <div>{{address}}</div>
+        <div>{{postcode}} {{city}}</div>
+        <div>tel. {{landline}}, {{mobile}}</div>
+        <div><a :href="web">{{web}}</a></div>
+      </div>
+    </div>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          company: "UnikPol S.A.",
+          address: "ul. Ukryta 5",
+          postcode: "02-114",
+          city: "Rawa Mazowiecka",
+          landline: "22 345 90 21",
+          mobile: "888 213 992",
+          web: "http://www.unikpol.pl"
+        }
+      });
+    </script>
+  </body>
 </html>
