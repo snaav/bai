@@ -7,14 +7,14 @@
   <body>
     <h1>Student</h1>
     <p>Open a console and then click the button</p>
-    <input type="button" value="Display student's data" />
+    <input type="button" value="Display student's data" onclick="show()" />
     <h1 id="dominikgreda"></h1>
 
     <script>
-      function connect() {
+      function show() {
         var method = "GET";
         var URL =
-          "https://raw.githubusercontent.com/snaav/bai/solutions/04-JSON%26DataTransfer/dominikgreda.json";
+          "https://raw.githubusercontent.com/snaav/bai/master/04-JSON%26DataTransfer/dominikgreda.json";
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
           display(this);

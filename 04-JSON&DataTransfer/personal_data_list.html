@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Personal Data List</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <h2>List Of Personal Data</h2>
+    <input type="button" value="Load" onclick="load()" />
+    <ol id="people"></ol>
+
+    <script>
+      function load() {
+        var method = "GET";
+        var URL =
+          "https://raw.githubusercontent.com/snaav/bai/master/04-JSON%26DataTransfer/people.json";
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+          show(this);
+        };
+        xhr.open(method, URL);
+        xhr.send();
+      }
+      function show(r) {
+        if (r.readyState == 4 && r.status == 200) {
+          var data = JSON.parse(r.responseText);
+          var list = document.getElementById("people");
+
+          data.forEach(ppl => {
+            var value = `${ppl.name} ${ppl.surname.toUpperCase()}, ${
+              ppl.country
+            }`;
+            var item = document.createElement("li");
+            item.appendChild(document.createTextNode(value));
+            list.appendChild(item);
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
