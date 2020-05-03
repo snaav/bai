@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <film
+        v-bind:title="films[0].title"
+        v-bind:year="films[0].year"
+        v-bind:director="films[0].director"
+      ></film>
+      <film
+        v-bind:title="films[1].title"
+        v-bind:year="films[1].year"
+        v-bind:director="films[1].director"
+      ></film>
+      <film
+        v-bind:title="films[2].title"
+        v-bind:year="films[2].year"
+        v-bind:director="films[2].director"
+      ></film>
+    </div>
+
+    <script type="text/x-template" id="film-template">
+      <div>
+        <h1>{{title}}</h1>
+        <p>{{year}}</p>
+        <p>{{director}}</p>
+      </div>
+    </script>
+    <script>
+      Vue.component("film", {
+        template: "#film-template",
+        props: {
+          title: String,
+          year: Number,
+          director: String,
+        },
+      });
+
+      new Vue({
+        el: "#app",
+        data: {
+          films: [
+            {
+              title: "SPIDER-MAN 3",
+              year: 2007,
+              director: "Sam Raimi",
+            },
+            {
+              title: "SHREK",
+              year: 2001,
+              director: "Andrew Adamson / Vicky Jenson",
+            },
+            {
+              title: "AVENGERS",
+              year: 2012,
+              director: "Joss Whedon",
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>
